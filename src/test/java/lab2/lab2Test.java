@@ -1,6 +1,6 @@
 package lab2;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class lab2Test {
 
@@ -26,9 +26,9 @@ public class lab2Test {
     public void filterStringMatrix() {
 
         String[][] matrix =  {
-                {"aa","zz","ww"},
-                {"xsas","x","sw"},
-                {"bb","aaa","cc"}
+                {"aas","fzz","www"},
+                {"xsas","wwx","sww"},
+                {"bbs","abc","ccc"}
         };
         System.out.println("Input matrix:");
         printInput(matrix);

@@ -1,11 +1,12 @@
 package lab1;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 public class lab1Test {
@@ -14,7 +15,7 @@ public class lab1Test {
     @Test
     public  void shufflerTest()  {
 
-        Integer[] arr = new Integer[1000];
+        Integer[] arr = new Integer[100];
 
         for (int i = 0 ; i < arr.length ; ++i ) {
             arr[i] = i;
@@ -23,7 +24,7 @@ public class lab1Test {
 
 
         Shuffler<Integer> shuffler = new Shuffler<>();
-        for(int i = 0 ; i < 10000000; ++i) {
+        for(int i = 0 ; i < 1000000; ++i) {
             Integer[] arrRes = shuffler.shuffle(arr);
 
             assertFalse(isEquals(arrInit, arrRes));
