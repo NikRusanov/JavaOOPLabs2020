@@ -13,21 +13,26 @@ import static java.lang.Math.abs;
  * @author Nik Rusanov
  */
 
-public class Polindrom {
+public class ReverseNumber {
     private final List<Integer> listOfNumbers;
-    Deque<Integer> stack = new LinkedList<>();
-    public Polindrom(List<Integer> inputList) {
+    private final Deque<Integer> stack = new LinkedList<>();
+
+    public ReverseNumber(List<Integer> inputList)  {
+
+        if(inputList.isEmpty()) {
+            throw new IllegalArgumentException("empty input");
+        }
         listOfNumbers = inputList;
     }
 
     public void getResult() {
         for (var item : listOfNumbers) {
-            System.out.println("\nEntered: " + item);
-                do {
-                    stack.push(item % 10);
+            int digit = item;
+            do {
+                    stack.push(digit % 10);
                 }
-                while (abs(item /=10 ) > 0);
-            System.out.println(print());
+                while (abs(digit /=10 ) > 0);
+            System.out.println(item + ":"+ print());
         }
     }
 

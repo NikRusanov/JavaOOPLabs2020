@@ -14,12 +14,12 @@ public class Main {
         List<Integer> listOfNumbers = new ArrayList<>();
         int number;
         String input;
-        System.out.println("Input number. Type \"exit for stop\"");
+        System.out.println("Input number. Type \"q\"");
         do {
             try
             {
                 input  = reader.readLine();
-                if(input.equals("exit")) {
+                if(input.equals("q")) {
                     break;
                 }
                 number = Integer.parseInt(input);
@@ -32,8 +32,8 @@ public class Main {
         }
         while ( true );
         if (!listOfNumbers.isEmpty()) {
-            Polindrom polindrom = new Polindrom(listOfNumbers);
-            polindrom.getResult();
+            ReverseNumber reverseNumber = new ReverseNumber(listOfNumbers);
+            reverseNumber.getResult();
         } else {
             System.out.println("you did not enter numbers");
         }
