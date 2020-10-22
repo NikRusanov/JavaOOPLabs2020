@@ -1,7 +1,8 @@
 package lab5;
 
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
+
+import static java.lang.Math.abs;
 
 /**
  *5.	Пользователь вводит некоторое число.
@@ -14,9 +15,7 @@ import java.util.Stack;
 
 public class Polindrom {
     private final List<Integer> listOfNumbers;
-    Stack<Character> stack = new Stack<>();
-    char[] numbers;
-
+    Deque<Integer> stack = new LinkedList<>();
     public Polindrom(List<Integer> inputList) {
         listOfNumbers = inputList;
     }
@@ -24,18 +23,24 @@ public class Polindrom {
     public void getResult() {
         for (var item : listOfNumbers) {
             System.out.println("\nEntered: " + item);
-            numbers = String.valueOf(item).toCharArray();
-            for( var i : numbers ) {
-                if(Character.isDigit(i)){
-                    stack.push(i);
+                do {
+                    stack.push(item % 10);
                 }
-            }
-
-            System.out.print("Reversed: " );
-            while( !stack.empty() ) {
-                System.out.print(stack.pop());
-            }
-            System.out.println();
+                while (abs(item /=10 ) > 0);
+            System.out.println(print());
         }
+    }
+
+    private String print() {
+        StringBuilder sb = new StringBuilder();
+        int len = stack.size();
+        while(!stack.isEmpty()) {
+            if(stack.size() != len )
+                sb.append(abs(stack.pollLast()));
+            else {
+                sb.append(stack.pollLast());
+            }
+        }
+        return sb.toString();
     }
 }
