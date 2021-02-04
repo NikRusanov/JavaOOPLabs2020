@@ -91,4 +91,12 @@ public class Triangle {
     }
 
 
+    @Override
+    public String toString() {
+        return "Triangle { " +
+                "A[" + a + "]" +
+                "\n B[" + b + "]" +
+                "\n C[" + c + "]" +
+                " }";
+    }
 }
